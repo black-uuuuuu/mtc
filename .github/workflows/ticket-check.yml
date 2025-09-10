@@ -1,19 +1,17 @@
 name: example
 on:
   schedule:
-    - cron: '* * * * *' # 每分鐘執行一次
-  workflow_dispatch:
-
+    - cron: '*/1 * * * *'  # 每分鐘執行一次
 jobs:
   job:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - name: Check Tickets
-        run: |
-          echo "Product ID: 211740"
-          echo "Schedule ID: 100002"
-          echo "Seat ID: 900"
-          echo "Message: go"
-
-
+        uses: mooyoul/melon-ticket-actions@v1.1.0
+        with:
+          product-id: 211740
+          schedule-id: 100002
+          seat-id: 900
+      - name: Show message
+        run: echo "go"
