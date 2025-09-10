@@ -1,9 +1,8 @@
 name: example
-
 on:
   schedule:
-    - cron: '* * * * *'  # 每 1 分鐘執行一次
-  workflow_dispatch:      # ✅ 放在 schedule 外面，跟它是同一層
+    - cron: '* * * * *' # 每分鐘執行一次
+  workflow_dispatch:
 
 jobs:
   job:
@@ -11,11 +10,10 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Check Tickets
-        uses: mooyoul/melon-ticket-actions@v1.1.0
-        with:
-          product-id: 211740
-          schedule-id: 100002
-          seat-id: 900
-          slack-incoming-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          message: '有票啦！快搶～'
+        run: |
+          echo "Product ID: 211740"
+          echo "Schedule ID: 100002"
+          echo "Seat ID: 900"
+          echo "Message: go"
+
 
