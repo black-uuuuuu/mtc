@@ -1,7 +1,7 @@
 name: example
 on:
   schedule:
-    - cron: '*/1 * * * *'  # 每分鐘執行一次
+    # - cron: '*/1 * * * *'  # 每分鐘執行一次
 jobs:
   job:
     runs-on: ubuntu-latest
